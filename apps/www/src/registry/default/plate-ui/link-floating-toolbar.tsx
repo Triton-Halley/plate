@@ -52,6 +52,7 @@ export function LinkFloatingToolbar({ state }: LinkFloatingToolbarProps) {
     ref: insertRef,
     hidden,
     textInputProps,
+    linkOption,
   } = useFloatingLinkInsert(insertState);
 
   const editState = useFloatingLinkEditState({
@@ -95,6 +96,9 @@ export function LinkFloatingToolbar({ state }: LinkFloatingToolbarProps) {
           {...textInputProps}
         />
       </div>
+      <div className='flex items-center gap-3 p-3'><input type='checkbox' onChange={(e)=>{
+linkOption.newTabOption(e)
+      }}/>new tab</div>
     </div>
   );
 

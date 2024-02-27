@@ -71,7 +71,11 @@ export const useFloatingLinkInsert = ({
     React.useCallback((e) => {
       floatingLinkActions.text(e.target.value);
     }, []);
-
+    const newTabOption: React.ChangeEventHandler<HTMLInputElement> =
+    React.useCallback((e) => {
+      floatingLinkActions.newTab(e.target.checked);
+    }, []);
+    
   const ref = useOnClickOutside(
     () => {
       if (floatingLinkSelectors.mode() === 'insert') {
@@ -123,5 +127,8 @@ export const useFloatingLinkInsert = ({
       onChange,
       defaultValue: floatingLinkSelectors.text(),
     },
+    linkOption:{
+      newTabOption
+    }
   };
 };
